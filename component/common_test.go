@@ -18,17 +18,17 @@
 package component
 
 import (
-	"github.com/zouyx/agollo/v4/component/log"
-	"github.com/zouyx/agollo/v4/env/server"
-	"github.com/zouyx/agollo/v4/protocol/http"
+	"github.com/zouyx/agollo/v5/component/log"
+	"github.com/zouyx/agollo/v5/env/server"
+	"github.com/zouyx/agollo/v5/protocol/http"
 	"testing"
 
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v4/cluster/roundrobin"
-	"github.com/zouyx/agollo/v4/env"
-	"github.com/zouyx/agollo/v4/env/config"
-	"github.com/zouyx/agollo/v4/env/config/json"
-	"github.com/zouyx/agollo/v4/extension"
+	"github.com/zouyx/agollo/v5/cluster/roundrobin"
+	"github.com/zouyx/agollo/v5/env"
+	"github.com/zouyx/agollo/v5/env/config"
+	"github.com/zouyx/agollo/v5/env/config/json"
+	"github.com/zouyx/agollo/v5/extension"
 
 	json2 "encoding/json"
 )

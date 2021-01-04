@@ -19,13 +19,13 @@ package json
 
 import (
 	"encoding/json"
-	"github.com/zouyx/agollo/v4/env/config"
-	"github.com/zouyx/agollo/v4/utils"
+	"github.com/zouyx/agollo/v5/env/config"
+	"github.com/zouyx/agollo/v5/utils"
 	"os"
 	"testing"
 
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v4/extension"
+	"github.com/zouyx/agollo/v5/extension"
 )
 
 func TestJSONFileHandler_WriteConfigFile(t *testing.T) {

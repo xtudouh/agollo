@@ -19,26 +19,26 @@ package agollo
 
 import (
 	"container/list"
-	"github.com/zouyx/agollo/v4/agcache"
-	"github.com/zouyx/agollo/v4/agcache/memory"
-	"github.com/zouyx/agollo/v4/cluster/roundrobin"
-	"github.com/zouyx/agollo/v4/component"
-	"github.com/zouyx/agollo/v4/component/log"
-	"github.com/zouyx/agollo/v4/component/notify"
-	"github.com/zouyx/agollo/v4/component/remote"
-	"github.com/zouyx/agollo/v4/component/serverlist"
-	"github.com/zouyx/agollo/v4/constant"
-	"github.com/zouyx/agollo/v4/env"
-	"github.com/zouyx/agollo/v4/env/config"
-	jsonFile "github.com/zouyx/agollo/v4/env/file/json"
-	"github.com/zouyx/agollo/v4/extension"
-	"github.com/zouyx/agollo/v4/protocol/auth/sign"
-	"github.com/zouyx/agollo/v4/storage"
-	"github.com/zouyx/agollo/v4/utils"
-	"github.com/zouyx/agollo/v4/utils/parse/normal"
-	"github.com/zouyx/agollo/v4/utils/parse/properties"
-	"github.com/zouyx/agollo/v4/utils/parse/yaml"
-	"github.com/zouyx/agollo/v4/utils/parse/yml"
+	"github.com/zouyx/agollo/v5/agcache"
+	"github.com/zouyx/agollo/v5/agcache/memory"
+	"github.com/zouyx/agollo/v5/cluster/roundrobin"
+	"github.com/zouyx/agollo/v5/component"
+	"github.com/zouyx/agollo/v5/component/log"
+	"github.com/zouyx/agollo/v5/component/notify"
+	"github.com/zouyx/agollo/v5/component/remote"
+	"github.com/zouyx/agollo/v5/component/serverlist"
+	"github.com/zouyx/agollo/v5/constant"
+	"github.com/zouyx/agollo/v5/env"
+	"github.com/zouyx/agollo/v5/env/config"
+	jsonFile "github.com/zouyx/agollo/v5/env/file/json"
+	"github.com/zouyx/agollo/v5/extension"
+	"github.com/zouyx/agollo/v5/protocol/auth/sign"
+	"github.com/zouyx/agollo/v5/storage"
+	"github.com/zouyx/agollo/v5/utils"
+	"github.com/zouyx/agollo/v5/utils/parse/normal"
+	"github.com/zouyx/agollo/v5/utils/parse/properties"
+	"github.com/zouyx/agollo/v5/utils/parse/yaml"
+	"github.com/zouyx/agollo/v5/utils/parse/yml"
 	"strconv"
 )
 
@@ -143,7 +143,10 @@ func (c *Client) GetConfigAndInit(namespace string) *storage.Config {
 		storage.CreateNamespaceConfig(namespace)
 
 		//sync config
-		syncApolloConfig.SyncWithNamespace(namespace, c.getAppConfig)
+		apolloConfig := syncApolloConfig.SyncWithNamespace(namespace, c.getAppConfig)
+		if apolloConfig != nil {
+			c.cache.UpdateApolloConfig(apolloConfig, c.getAppConfig, true)
+		}
 	}
 
 	config = c.cache.GetConfig(namespace)

@@ -19,11 +19,11 @@ package json
 
 import (
 	"fmt"
-	"github.com/zouyx/agollo/v4/env/config"
+	"github.com/zouyx/agollo/v5/env/config"
 	"os"
 	"sync"
 
-	"github.com/zouyx/agollo/v4/env/file"
+	"github.com/zouyx/agollo/v5/env/file"
 )
 
 var (

@@ -18,14 +18,14 @@
 package roundrobin
 
 import (
-	"github.com/zouyx/agollo/v4/component/serverlist"
-	"github.com/zouyx/agollo/v4/env/config"
-	"github.com/zouyx/agollo/v4/env/server"
-	"github.com/zouyx/agollo/v4/protocol/http"
+	"github.com/zouyx/agollo/v5/component/serverlist"
+	"github.com/zouyx/agollo/v5/env/config"
+	"github.com/zouyx/agollo/v5/env/server"
+	"github.com/zouyx/agollo/v5/protocol/http"
 	"testing"
 
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v4/env"
+	"github.com/zouyx/agollo/v5/env"
 )
 
 const servicesConfigResponseStr = `[{

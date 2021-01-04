@@ -18,7 +18,7 @@
 package extension
 
 import (
-	"github.com/zouyx/agollo/v4/constant"
+	"github.com/zouyx/agollo/v5/constant"
 	"testing"
 
 	. "github.com/tevid/gohamcrest"

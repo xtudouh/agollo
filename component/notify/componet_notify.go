@@ -18,11 +18,11 @@
 package notify
 
 import (
-	"github.com/zouyx/agollo/v4/component/remote"
-	"github.com/zouyx/agollo/v4/storage"
+	"github.com/zouyx/agollo/v5/component/remote"
+	"github.com/zouyx/agollo/v5/storage"
 	"time"
 
-	"github.com/zouyx/agollo/v4/env/config"
+	"github.com/zouyx/agollo/v5/env/config"
 )
 
 const (

@@ -18,13 +18,13 @@
 package serverlist
 
 import (
-	"github.com/zouyx/agollo/v4/env/server"
-	"github.com/zouyx/agollo/v4/protocol/http"
+	"github.com/zouyx/agollo/v5/env/server"
+	"github.com/zouyx/agollo/v5/protocol/http"
 	"testing"
 
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v4/env"
-	"github.com/zouyx/agollo/v4/env/config"
+	"github.com/zouyx/agollo/v5/env"
+	"github.com/zouyx/agollo/v5/env/config"
 )
 
 func TestSyncServerIPList(t *testing.T) {

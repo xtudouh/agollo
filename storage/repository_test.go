@@ -18,21 +18,21 @@
 package storage
 
 import (
-	"github.com/zouyx/agollo/v4/agcache/memory"
-	"github.com/zouyx/agollo/v4/env/config"
-	jsonFile "github.com/zouyx/agollo/v4/env/file/json"
-	"github.com/zouyx/agollo/v4/extension"
+	"github.com/zouyx/agollo/v5/agcache/memory"
+	"github.com/zouyx/agollo/v5/env/config"
+	jsonFile "github.com/zouyx/agollo/v5/env/file/json"
+	"github.com/zouyx/agollo/v5/extension"
 	"strings"
 	"testing"
 	"time"
 
 	. "github.com/tevid/gohamcrest"
-	_ "github.com/zouyx/agollo/v4/agcache/memory"
-	"github.com/zouyx/agollo/v4/env"
-	_ "github.com/zouyx/agollo/v4/env/file/json"
+	_ "github.com/zouyx/agollo/v5/agcache/memory"
+	"github.com/zouyx/agollo/v5/env"
+	_ "github.com/zouyx/agollo/v5/env/file/json"
 
-	_ "github.com/zouyx/agollo/v4/utils/parse/normal"
-	_ "github.com/zouyx/agollo/v4/utils/parse/properties"
+	_ "github.com/zouyx/agollo/v5/utils/parse/normal"
+	_ "github.com/zouyx/agollo/v5/utils/parse/properties"
 )
 
 //init param

@@ -20,12 +20,12 @@ package remote
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/zouyx/agollo/v4/component/log"
-	"github.com/zouyx/agollo/v4/constant"
-	"github.com/zouyx/agollo/v4/env/config"
-	"github.com/zouyx/agollo/v4/extension"
-	"github.com/zouyx/agollo/v4/protocol/http"
-	"github.com/zouyx/agollo/v4/utils"
+	"github.com/zouyx/agollo/v5/component/log"
+	"github.com/zouyx/agollo/v5/constant"
+	"github.com/zouyx/agollo/v5/env/config"
+	"github.com/zouyx/agollo/v5/extension"
+	"github.com/zouyx/agollo/v5/protocol/http"
+	"github.com/zouyx/agollo/v5/utils"
 	"net/url"
 	"path"
 )
