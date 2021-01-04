@@ -23,7 +23,7 @@ import (
 	"testing"
 
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v5/agcache"
+	"github.com/xtudouh/agollo/v5/agcache"
 )
 
 type TestCacheFactory struct {

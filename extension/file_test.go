@@ -18,11 +18,11 @@
 package extension
 
 import (
-	"github.com/zouyx/agollo/v5/env/config"
+	"github.com/xtudouh/agollo/v5/env/config"
 	"testing"
 
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v5/env/file"
+	"github.com/xtudouh/agollo/v5/env/file"
 )
 
 type TestFileHandler struct {

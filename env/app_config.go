@@ -22,9 +22,9 @@ import (
 	"os"
 	"sync"
 
-	"github.com/zouyx/agollo/v5/env/config"
-	jsonConfig "github.com/zouyx/agollo/v5/env/config/json"
-	"github.com/zouyx/agollo/v5/utils"
+	"github.com/xtudouh/agollo/v5/env/config"
+	jsonConfig "github.com/xtudouh/agollo/v5/env/config/json"
+	"github.com/xtudouh/agollo/v5/utils"
 )
 
 const (

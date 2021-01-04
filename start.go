@@ -18,12 +18,12 @@
 package agollo
 
 import (
-	"github.com/zouyx/agollo/v5/agcache"
-	"github.com/zouyx/agollo/v5/cluster"
-	"github.com/zouyx/agollo/v5/component/log"
-	"github.com/zouyx/agollo/v5/env/file"
-	"github.com/zouyx/agollo/v5/extension"
-	"github.com/zouyx/agollo/v5/protocol/auth"
+	"github.com/xtudouh/agollo/v5/agcache"
+	"github.com/xtudouh/agollo/v5/cluster"
+	"github.com/xtudouh/agollo/v5/component/log"
+	"github.com/xtudouh/agollo/v5/env/file"
+	"github.com/xtudouh/agollo/v5/extension"
+	"github.com/xtudouh/agollo/v5/protocol/auth"
 )
 
 //SetSignature 设置自定义 http 授权控件

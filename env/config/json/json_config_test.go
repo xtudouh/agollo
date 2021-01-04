@@ -23,8 +23,8 @@ import (
 	"testing"
 
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v5/env/config"
-	"github.com/zouyx/agollo/v5/utils"
+	"github.com/xtudouh/agollo/v5/env/config"
+	"github.com/xtudouh/agollo/v5/utils"
 )
 
 var (

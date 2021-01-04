@@ -20,7 +20,7 @@ package config
 import (
 	"encoding/json"
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v5/utils"
+	"github.com/xtudouh/agollo/v5/utils"
 	"sync"
 	"testing"
 )

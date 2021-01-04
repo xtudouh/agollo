@@ -21,7 +21,7 @@ import (
 	"crypto/tls"
 	"errors"
 	"fmt"
-	"github.com/zouyx/agollo/v5/env/server"
+	"github.com/xtudouh/agollo/v5/env/server"
 	"io/ioutil"
 	"net"
 	"net/http"
@@ -29,11 +29,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/zouyx/agollo/v5/component/log"
-	"github.com/zouyx/agollo/v5/env"
-	"github.com/zouyx/agollo/v5/env/config"
-	"github.com/zouyx/agollo/v5/extension"
-	"github.com/zouyx/agollo/v5/utils"
+	"github.com/xtudouh/agollo/v5/component/log"
+	"github.com/xtudouh/agollo/v5/env"
+	"github.com/xtudouh/agollo/v5/env/config"
+	"github.com/xtudouh/agollo/v5/extension"
+	"github.com/xtudouh/agollo/v5/utils"
 )
 
 var (

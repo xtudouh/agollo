@@ -19,7 +19,7 @@ package memory
 
 import (
 	"errors"
-	"github.com/zouyx/agollo/v5/agcache"
+	"github.com/xtudouh/agollo/v5/agcache"
 	"sync"
 	"sync/atomic"
 )

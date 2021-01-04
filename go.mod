@@ -1,4 +1,4 @@
-module github.com/zouyx/agollo/v5
+module github.com/xtudouh/agollo/v5
 
 require (
 	github.com/spf13/viper v1.7.1

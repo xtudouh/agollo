@@ -18,10 +18,10 @@
 package remote
 
 import (
-	"github.com/zouyx/agollo/v5/component/log"
-	"github.com/zouyx/agollo/v5/env"
-	"github.com/zouyx/agollo/v5/env/config"
-	"github.com/zouyx/agollo/v5/protocol/http"
+	"github.com/xtudouh/agollo/v5/component/log"
+	"github.com/xtudouh/agollo/v5/env"
+	"github.com/xtudouh/agollo/v5/env/config"
+	"github.com/xtudouh/agollo/v5/protocol/http"
 )
 
 // AbsApolloConfig 抽象 apollo 配置

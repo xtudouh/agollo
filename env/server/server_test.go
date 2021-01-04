@@ -19,7 +19,7 @@ package server
 
 import (
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v5/env/config"
+	"github.com/xtudouh/agollo/v5/env/config"
 	"testing"
 	"time"
 )

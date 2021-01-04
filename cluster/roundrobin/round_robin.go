@@ -18,7 +18,7 @@
 package roundrobin
 
 import (
-	"github.com/zouyx/agollo/v5/env/config"
+	"github.com/xtudouh/agollo/v5/env/config"
 )
 
 //RoundRobin 轮询调度

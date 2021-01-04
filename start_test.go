@@ -25,12 +25,12 @@ import (
 	"time"
 
 	. "github.com/tevid/gohamcrest"
-	"github.com/zouyx/agollo/v5/agcache/memory"
-	"github.com/zouyx/agollo/v5/component/log"
-	"github.com/zouyx/agollo/v5/env"
-	"github.com/zouyx/agollo/v5/env/config"
-	jsonFile "github.com/zouyx/agollo/v5/env/config/json"
-	"github.com/zouyx/agollo/v5/extension"
+	"github.com/xtudouh/agollo/v5/agcache/memory"
+	"github.com/xtudouh/agollo/v5/component/log"
+	"github.com/xtudouh/agollo/v5/env"
+	"github.com/xtudouh/agollo/v5/env/config"
+	jsonFile "github.com/xtudouh/agollo/v5/env/config/json"
+	"github.com/xtudouh/agollo/v5/extension"
 )
 
 var (

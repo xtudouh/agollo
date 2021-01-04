@@ -18,7 +18,7 @@
 package server
 
 import (
-	"github.com/zouyx/agollo/v5/env/config"
+	"github.com/xtudouh/agollo/v5/env/config"
 	"strings"
 	"sync"
 	"time"
