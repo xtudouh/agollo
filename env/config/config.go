@@ -89,6 +89,16 @@ func (a *AppConfig) Init() {
 	a.initAllNotifications(nil)
 }
 
+func (a *AppConfig) Register(namespace string) {
+	a.notificationsMap.notifications.LoadOrStore(namespace, defaultNotificationID)
+	var namespaces []string
+	a.notificationsMap.notifications.Range(func(k, v interface{}) bool {
+		namespaces = append(namespaces, k.(string))
+		return true
+	})
+	a.NamespaceName = strings.Join(namespaces, comma)
+}
+
 // Notification 用于保存 apollo Notification 信息
 type Notification struct {
 	NamespaceName  string `json:"namespaceName"`
@@ -97,15 +107,18 @@ type Notification struct {
 
 // InitAllNotifications 初始化notificationsMap
 func (a *AppConfig) initAllNotifications(callback func(namespace string)) {
-	ns := SplitNamespaces(a.NamespaceName, callback)
 	a.notificationsMap = &notificationsMap{
-		notifications: ns,
+		notifications: new(sync.Map),
 	}
 }
 
 //SplitNamespaces 根据namespace字符串分割后，并执行callback函数
-func SplitNamespaces(namespacesStr string, callback func(namespace string)) sync.Map {
-	namespaces := sync.Map{}
+func SplitNamespaces(namespacesStr string, callback func(namespace string)) *sync.Map {
+	if len(namespacesStr) == 0 {
+		return &sync.Map{}
+	}
+
+	namespaces := &sync.Map{}
 	split := strings.Split(namespacesStr, comma)
 	for _, namespace := range split {
 		if callback != nil {
@@ -141,7 +154,7 @@ func (a *AppConfig) GetCurrentApolloConfig() *CurrentApolloConfig {
 
 // map[string]int64
 type notificationsMap struct {
-	notifications sync.Map
+	notifications *sync.Map
 }
 
 func (n *notificationsMap) UpdateAllNotifications(remoteConfigs []*Notification) {
@@ -179,7 +192,7 @@ func (n *notificationsMap) GetNotifyLen() int {
 	return l
 }
 
-func (n *notificationsMap) GetNotifications() sync.Map {
+func (n *notificationsMap) GetNotifications() *sync.Map {
 	return n.notifications
 }
 

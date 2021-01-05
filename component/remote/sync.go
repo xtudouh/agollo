@@ -31,7 +31,7 @@ import (
 )
 
 // CreateSyncApolloConfig 创建同步获取 Apollo 配置
-func CreateSyncApolloConfig() ApolloConfig {
+func CreateSyncApolloConfig() *syncApolloConfig {
 	a := &syncApolloConfig{}
 	a.remoteApollo = a
 	return a

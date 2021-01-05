@@ -40,7 +40,7 @@ const (
 )
 
 // CreateAsyncApolloConfig 创建异步 apollo 配置
-func CreateAsyncApolloConfig() ApolloConfig {
+func CreateAsyncApolloConfig() *asyncApolloConfig {
 	a := &asyncApolloConfig{}
 	a.remoteApollo = a
 	return a
@@ -68,6 +68,9 @@ func (*asyncApolloConfig) GetSyncURI(config config.AppConfig, namespaceName stri
 
 func (a *asyncApolloConfig) Sync(appConfigFunc func() config.AppConfig) []*config.ApolloConfig {
 	appConfig := appConfigFunc()
+	if len(appConfig.NamespaceName) == 0 {
+		return nil
+	}
 	remoteConfigs, err := a.notifyRemoteConfig(appConfigFunc, utils.Empty)
 
 	var apolloConfigs []*config.ApolloConfig
@@ -82,8 +85,7 @@ func (a *asyncApolloConfig) Sync(appConfigFunc func() config.AppConfig) []*confi
 	appConfig.GetNotificationsMap().UpdateAllNotifications(remoteConfigs)
 
 	notifications := appConfig.GetNotificationsMap().GetNotifications()
-	n := &notifications
-	n.Range(func(key, value interface{}) bool {
+	notifications.Range(func(key, value interface{}) bool {
 		apolloConfig := a.SyncWithNamespace(key.(string), appConfigFunc)
 		apolloConfigs = append(apolloConfigs, apolloConfig)
 		return true

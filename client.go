@@ -60,10 +60,11 @@ func init() {
 	extension.AddFormatParser(constant.YAML, &yaml.Parser{})
 }
 
-var syncApolloConfig = remote.CreateSyncApolloConfig()
+
 
 // Client apollo 客户端实例
 type Client struct {
+	ApolloConfig remote.ApolloConfig
 	initAppConfigFunc func() (*config.AppConfig, error)
 	appConfig         *config.AppConfig
 	cache             *storage.Cache
@@ -74,7 +75,6 @@ func (c *Client) getAppConfig() config.AppConfig {
 }
 
 func create() *Client {
-
 	appConfig := env.InitFileConfig()
 	return &Client{
 		appConfig: appConfig,
@@ -103,21 +103,12 @@ func StartWithConfig(loadAppConfig func() (*config.AppConfig, error)) (*Client, 
 	appConfig.Init()
 
 	serverlist.InitSyncServerIPList(c.getAppConfig)
-
-	//first sync
-	configs := syncApolloConfig.Sync(c.getAppConfig)
-	if len(configs) > 0 {
-		for _, apolloConfig := range configs {
-			c.cache.UpdateApolloConfig(apolloConfig, c.getAppConfig, true)
-		}
-	}
+	c.ApolloConfig = remote.CreateSyncApolloConfig()
 
 	log.Debug("init notifySyncConfigServices finished")
 
 	//start long poll sync config
-	configComponent := &notify.ConfigComponent{}
-	configComponent.SetAppConfig(c.getAppConfig)
-	configComponent.SetCache(c.cache)
+	configComponent := notify.NewConfigComponent(c.getAppConfig, c.cache)
 	go component.StartRefreshConfig(configComponent)
 
 	log.Info("agollo start finished ! ")
@@ -143,7 +134,7 @@ func (c *Client) GetConfigAndInit(namespace string) *storage.Config {
 		storage.CreateNamespaceConfig(namespace)
 
 		//sync config
-		apolloConfig := syncApolloConfig.SyncWithNamespace(namespace, c.getAppConfig)
+		apolloConfig := c.ApolloConfig.SyncWithNamespace(namespace, c.getAppConfig)
 		if apolloConfig != nil {
 			c.cache.UpdateApolloConfig(apolloConfig, c.getAppConfig, true)
 		}

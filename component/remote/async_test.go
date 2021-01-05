@@ -26,6 +26,7 @@ import (
 	jsonFile "github.com/xtudouh/agollo/v5/env/file/json"
 	"github.com/xtudouh/agollo/v5/env/server"
 	"github.com/xtudouh/agollo/v5/extension"
+	"github.com/xtudouh/agollo/v5/protocol/auth/sign"
 	http2 "github.com/xtudouh/agollo/v5/protocol/http"
 	"net/http"
 	"net/http/httptest"
@@ -249,4 +250,30 @@ func TestGetConfigURLSuffix(t *testing.T) {
 	appConfig.Init()
 	uri := asyncApollo.GetSyncURI(*appConfig, "kk")
 	Assert(t, "", NotEqual(uri))
+}
+
+
+/*
+		Server:    "http://meta-server.dev.s.2345inc.com:8080",
+		AppId:     "basic-api-demo-gomicro",
+		Cluster:   "default",
+		Secret:    "170cc48f511b41c0a9571ae88835bd71",
+		BackupDir: "apollo-cache",
+*/
+func TestSync(t *testing.T) {
+	async := new(asyncApolloConfig)
+	async.remoteApollo = async
+	extension.SetHTTPAuth(&sign.AuthSignature{})
+	async.Sync(func () config.AppConfig {
+		cfg := config.AppConfig{
+			IP: "http://meta-server.dev.s.2345inc.com:8080",
+			AppID: "basic-api-demo-gomicro",
+			Cluster:   "default",
+			Secret:    "170cc48f511b41c0a9571ae88835bd71",
+			NamespaceName: "redis.json",
+		}
+
+		cfg.Init()
+		return cfg
+	})
 }
